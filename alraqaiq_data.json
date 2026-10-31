@@ -12,8 +12,8 @@
     },
     "total_chapters": 14,
     "total_subtopics": 83,
-    "total_paragraphs": 921,
-    "total_footnotes": 180,
+    "total_paragraphs": 920,
+    "total_footnotes": 181,
     "total_quotes": 117,
     "last_updated": "2026-10-31"
   },
@@ -25,7 +25,7 @@
       "title": "PENJARA HARAPAN",
       "title_ar": "حِصَارُ الأَمَلِ",
       "total_subtopics": 1,
-      "total_paragraphs": 7,
+      "total_paragraphs": 6,
       "subtopics": [
         {
           "id": "c1_s0",
@@ -33,16 +33,25 @@
           "paragraphs": [
             "<div class=\"epigraf-art-presentation-card\" style=\"text-align: center; margin: 20px auto 35px auto; max-width: 540px; background: var(--bg-card, #ffffff); border: 1px solid var(--border-subtle, #cbd5e1); border-radius: 16px; padding: 24px; box-shadow: var(--shadow-glow, 0 10px 30px rgba(0,0,0,0.1));\">\n  <div class=\"art-viewer-wrap\" style=\"position: relative; border-radius: 12px; overflow: hidden; background: #fafaf9; border: 2px solid #1c1917; padding: 10px; box-shadow: inset 0 2px 6px rgba(0,0,0,0.1);\">\n    <img id=\"epigrafMainArt\" src=\"images/epigraf_penjara_harapan.svg\" alt=\"Epigraf: Penjara Harapan - Sebuah Lukisan Seni Lukisan Abstrak Islam\" style=\"max-width: 100%; height: auto; display: block; margin: 0 auto; border-radius: 4px;\" />\n  </div>\n  <div class=\"art-view-switch-bar\" style=\"display: flex; justify-content: center; gap: 10px; margin-top: 14px;\">\n    <button type=\"button\" class=\"art-toggle-btn active-art-btn\" onclick=\"document.getElementById('epigrafMainArt').src='images/epigraf_penjara_harapan.svg'; this.classList.add('active-art-btn'); this.nextElementSibling.classList.remove('active-art-btn');\" style=\"cursor: pointer; padding: 6px 14px; border-radius: 20px; border: 1px solid var(--emerald-primary); background: var(--emerald-primary); color: #fff; font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 6px;\">\n      <span>🎨</span> <span>Lukisan Vektor (Tajam HD)</span>\n    </button>\n    <button type=\"button\" class=\"art-toggle-btn\" onclick=\"document.getElementById('epigrafMainArt').src='images/epigraf_penjara_harapan.png'; this.classList.add('active-art-btn'); this.previousElementSibling.classList.remove('active-art-btn');\" style=\"cursor: pointer; padding: 6px 14px; border-radius: 20px; border: 1px solid var(--border-card, #94a3b8); background: var(--bg-input, #e2e8f0); color: var(--text-main, #0f172a); font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 6px;\">\n      <span>📜</span> <span>Imbasan Asal Kitab Arab</span>\n    </button>\n  </div>\n  <div class=\"art-caption-box\" style=\"margin-top: 22px; padding-top: 18px; border-top: 1px dashed var(--border-subtle, #cbd5e1);\">\n    <div style=\"font-family: 'Amiri', serif; font-size: 2.6rem; font-weight: 700; color: var(--text-gold, #fde047); line-height: 1.35; text-shadow: 0 2px 12px rgba(253, 224, 71, 0.25);\">حِصَارُ الأَمَلِ</div>\n    <div style=\"font-family: 'Outfit', 'Times New Roman', serif; font-size: 1.6rem; font-weight: 800; color: var(--text-main, #f0f6fc); margin: 6px 0 6px 0; letter-spacing: 0.5px;\">Penjara Harapan</div>\n    <div style=\"font-family: 'Amiri', serif; font-size: 1.7rem; font-weight: 400; color: var(--text-light, #cde0f7); margin-top: 6px; line-height: 1.35;\">لَوْحَةٌ مِنَ الفَنِّ التَّجْرِيدِيِّ الإِسْلَامِيِّ</div>\n    <div style=\"font-family: 'Outfit', 'Times New Roman', serif; font-size: 1.15rem; font-style: italic; color: var(--text-gold, #fde047); margin-top: 4px;\">Sebuah Lukisan Seni Lukisan Abstrak Islam</div>\n  </div>\n</div>\n</div>",
             "Kitab *Al-Raqā'iq* didahului oleh sebuah epigraf berupa lakaran seni lukisan abstrak Islam yang masyhur bertajuk **\"Penjara Harapan\"** (*Ḥiṣār al-Amal*). Lakaran ini diilhamkan daripada hadis sahih Rasulullah SAW yang diriwayatkan oleh Abdullah bin Mas'ud RA:",
-            "« خَطَّ النَّبِيُّ صَلَّى اللهُ عَلَيْهِ وَسَلَّمَ خَطًّا مُرَبَّعًا ، وَخَطَّ خَطًّا فِي الوَسَطِ خَارِجًا مِنْهُ ، وَخَطَّ خُطَطًا صِغَارًا إِلَى هَذَا الَّذِي فِي الوَسَطِ ، مِنْ جَانِبِهِ الَّذِي فِي الوَسَطِ ، وَقَالَ : هَذَا الإِنْسَانُ ، وَهَذَا أَجَلُهُ مُحِيطٌ بِهِ ـ أَوْ : قَدْ أَحَاطَ بِهِ ـ وَهَذَا الَّذِي هُوَ خَارِجٌ : أَمَلُهُ ، وَهَذِهِ الخُطَطُ الصِّغَارُ : الأَعْرَاضُ ، فَإِنْ أَخْطَأَهُ هَذَا نَهَشَهُ هَذَا ، وَإِنْ أَخْطَأَهُ هَذَا نَهَشَهُ هَذَا » [1]",
+            "« خَطَّ النَّبِيُّ صَلَّى اللهُ عَلَيْهِ وَسَلَّمَ خَطًّا مُرَبَّعًا ، وَخَطَّ خَطًّا فِي الوَسَطِ خَارِجًا مِنْهُ ، وَخَطَّ خُطَطًا صِغَارًا إِلَى هَذَا الَّذِي فِي الوَسَطِ ، مِنْ جَانِبِهِ الَّذِي فِي الوَسَطِ ، وَقَالَ : هَذَا الإِنْسَانُ ، وَهَذَا أَجَلُهُ مُحِيطٌ بِهِ ـ أَوْ : قَدْ أَحَاطَ بِهِ ـ وَهَذَا الَّذِي هُوَ خَارِجٌ : أَمَلُهُ ، وَهَذِهِ الخُطَطُ الصِّغَارُ : الأَعْرَاضُ ، فَإِنْ أَخْطَأَهُ هَذَا نَهَشَهُ هَذَا ، وَإِنْ أَخْطَأَهُ هَذَا نَهَشَهُ هَذَا » <span class=\"fn-ref\" data-fn-id=\"1\" role=\"button\" tabindex=\"0\" title=\"*Ṣaḥīḥ al-Bukhārī*, no. 6417 (*Kitāb al-Riqāq*, *Bāb fī al-Amal wa Ṭūlih*).\">[1]</span>",
             "*Daripada Abdullah bin Mas'ud RA katanya: “Nabi SAW pernah melakarkan satu garisan segi empat, dan melakarkan satu garisan di tengah-tengahnya yang terkeluar melangkaui garisan segi empat itu. Baginda juga melakarkan beberapa garisan kecil yang menghala ke garisan tengah ini dari sisi garisan tengah itu, lalu baginda bersabda: ‘Ini adalah manusia, dan ini pula ajalnya yang mengepungnya — atau telah sedia mengepungnya — manakala garisan yang terkeluar panjang ini adalah angan-angannya. Garisan-garisan kecil ini pula ialah rintangan dan penyakit; sekiranya dia terlepas daripada rintangan yang ini, rintangan yang itu akan menerkamnya, dan sekiranya dia terlepas daripada rintangan yang itu, rintangan yang ini pula akan menerkamnya.’”*",
             "**Mutiara Tadabbur Simbolik & Fiqh Haraki Lukisan:**\n1. **Lembaga Manusia di Tengah Segi Empat:** Melambangkan seorang insan beriman yang hidup di alam fana dalam serba keterbatasan.\n2. **Kandang Bingkai Segi Empat Kaku:** Melambangkan **Ajal Maut** yang mengepung manusia dari segenap sudut; tiada sesiapapun yang berdaya melangkah keluar melangkaui batas ketetapan Allah SWT.\n3. **Pancaran Garisan Menjulur ke Luar Bingkai:** Melambangkan **Angan-angan & Harapan Palsu (Al-Amal)** yang menjangkau jauh melintasi sempadan usia, seolah-olah dia akan terus hidup tanpa pengakhiran.\n4. **Anak Panah & Pusaran di Sekeliling Manusia:** Melambangkan **Rintangan & Sebab Kematian (Al-A'rādh)** yang sentiasa mengintai mangsanya: penyakit, wabak, keuzuran usia, dan bencana mengejut.",
-            "Melalui epigraf ini, Syeikh Muhammad Ahmad ar-Rasyid membuka gerbang kitab *Al-Raqā'iq* agar para da'i sentiasa menyedari bahawa tempoh kehidupan di dunia ini tersangat singkat dalam kepungan ajal, lalu membakar azam haraki untuk segera beramal dan memenangkan dakwah Islam sebelum tiba saat dipanggil Ilahi.",
-            "---\nNOTA KAKI EPIGRAF:\n[1] Sahih al-Bukhari, no. 6417 (Kitab al-Riqaq, Bab fi al-Amal wa Thulih)."
+            "Melalui epigraf ini, Syeikh Muhammad Ahmad ar-Rasyid membuka gerbang kitab *Al-Raqā'iq* agar para da'i sentiasa menyedari bahawa tempoh kehidupan di dunia ini tersangat singkat dalam kepungan ajal, lalu membakar azam haraki untuk segera beramal dan memenangkan dakwah Islam sebelum tiba saat dipanggil Ilahi."
           ],
-          "footnotes": []
+          "footnotes": [
+            {
+              "id": 1,
+              "text": "*Ṣaḥīḥ al-Bukhārī*, no. 6417 (*Kitāb al-Riqāq*, *Bāb fī al-Amal wa Ṭūlih*)."
+            }
+          ]
         }
       ],
-      "footnotes": [],
+      "footnotes": [
+        {
+          "id": 1,
+          "text": "*Ṣaḥīḥ al-Bukhārī*, no. 6417 (*Kitāb al-Riqāq*, *Bāb fī al-Amal wa Ṭūlih*)."
+        }
+      ],
       "summary": "EPILOG / EPIGRAF: PENJARA HARAPAN\n### *(Ḥiṣār al-Amal - حِصَارُ الأَمَلِ)*\n\n* **Ringkasan Epilog / Epigraf:**\n  Kitab *Al-Raqā'iq* dibuka dengan lukisan simbolik seni abstrak Islam yang mengilustrasikan hadis sahih Rasulullah SAW (riwayat Abdullah bin Mas'ud RA dalam Sahih al-Bukhari) mengenai hakikat manusia yang terkurung dalam kepungan ajal maut, sementara angan-angan kosongnya (*al-amal*) melangkaui sempadan usia.\n\n* **Intisari Subtajuk:**\n  * **• Sebuah Lukisan Seni Lukisan Abstrak Islam:**\n    * Menghuraikan empat elemen utama lukisan Nabawi: lembaga insan di tengah, kotak segi empat ajal yang mengepung, garisan angan-angan panjang menjulur keluar, dan anak-anak panah pelbagai rintangan penyakit/musibah yang sedia menerkam. Menjadi pencetus muhasabah ruhiyyah dan pemangkin tajdid niat para da'i sebelum mendalami bab-bab seterusnya.\n---"
     },
     {
