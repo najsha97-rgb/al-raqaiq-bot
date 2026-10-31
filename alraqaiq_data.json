@@ -11,7 +11,7 @@
       "layer3": "Mutiara Kata Hikmah & Fiqh Haraki (117 Mutiara)"
     },
     "total_chapters": 14,
-    "total_subtopics": 83,
+    "total_subtopics": 87,
     "total_paragraphs": 920,
     "total_footnotes": 181,
     "total_quotes": 117,
@@ -60,7 +60,7 @@
       "number": "MUKADIMAH",
       "title": "JIWA YANG BERIMAN",
       "title_ar": "النَّفْسُ المُؤْمِنَةُ",
-      "total_subtopics": 2,
+      "total_subtopics": 6,
       "total_paragraphs": 43,
       "subtopics": [
         {
@@ -80,7 +80,7 @@
         },
         {
           "id": "c2_s1",
-          "title": "Gerakan Islam Wajib Memiliki Firasat Meneliti Dirinya Sendiri",
+          "title": "Firasat Meneliti Diri dan Neraca Tarbiah Harakiyyah",
           "paragraphs": [
             "Namun tarbiah ini bukanlah diceduk secara semberono. Ciri paling khusus bagi tarbiah ini ialah ia menyahut seruan keperluan mengikut tahap fasa dan merawat realiti semasa. Pada setiap adab yang dibimbing oleh Islam terkandung kebaikan. Namun kemampuan insan yang berniat ikhlas tetap terbatas. Oleh itu, wajib menetapkan keutamaan (*al-mufadhalah*) antara bahagian-bahagian kebaikan ini; memulakan dengan perkara yang lebih afdal serta perkara yang dapat menampung keperluan fasa tersebut setelah mengenal pasti lompang kekurangannya.",
             "Hal itulah yang menuntut gerakan Islam masa kini—selepas fasa pengenalpastian tersebut—untuk meneliti dirinya sendiri dengan firasat yang berpengalaman dalam ruang tafakur yang mendalam; lalu menentukan kekurangannya dan menghitung aset kekuatannya. Semoga dengan itu, Allah SWT mengizinkan firasatnya terhadap masyarakat luar menepati sasaran, sekali gus memperkemas laluannya dalam kancah pertarungan yang sengit ini. Hal ini sama seperti yang diungkapkan oleh seorang ahli zuhud yang bijaksana, Samnun rahimahullah ketika ditanya tentang firasat dan hakikatnya, lalu beliau menjawab:",
@@ -91,27 +91,60 @@
             "* Mengambil berat terhadap solat dan memperkukuh akidah.\n* Beriltizam dengan adab persaudaraan.\n* Bergembira dengan pengorbanan dan keletihan harian.\n* Rindu kepada jihad dan syahid, tanpa sebarang kegopohan melulu.\n* Berdisiplin dengan ketaatan.\n* Memadai dengan kehidupan dunia yang sedikit serta mencari sifat ringan bebanan di akhirat.\n* Mengintai kedatangan maut dan melupakan angan-angan duniawi.\n* Mencintai Allah SWT, dalam pengharapan yang sentiasa dikawal oleh rasa takut kepada-Nya.\n* Bersikap tegas memisahkan diri (*al-mufashalah*) daripada golongan yang kufur dan munafik.\n* Bersabar menempuh segala mehnah dan ujian.",
             "Sesiapa yang merealisasikan pengertian-pengertian ini, dialah kader yang kental yang wajar dijadikan sandaran dalam saf teras gerakan Islam.",
             "Fasal-fasal dalam kitab ini dikhususkan bagi menjelaskan sebahagian daripada pengertian tersebut serta mengingatkannya kembali; menerusi untaian nasihat yang melembutkan hati, membantu jiwa meneroka jalan yang benar, dan menemaninya ketika ia sedang melangkah di jalan itu. Sesungguhnya paksi segala pergerakan hidup ini berkait rapat dengan paksi jiwa yang sentiasa berbolak-balik antara ketakwaan dan kefasikan. Jika jiwa itu baik, ia memayungi tuannya dengan naungan redup yang mengurniakan ketenteraman, bahkan turut melimpahi orang lain seluas mana kebaikan itu terpancar. Sekiranya jiwa itu rosak, maka yang ada hanyalah kegelisahan dan neraka keresahan.",
-            "Bagi menyedarkan manusia tentang keindahan jiwa yang beriman serta mendorong mereka meneladani pembawaannya yang tenang: maka hadirlah kitab ini.",
+            "Bagi menyedarkan manusia tentang keindahan jiwa yang beriman serta mendorong mereka meneladani pembawaannya yang tenang: maka hadirlah kitab ini."
+          ],
+          "footnotes": [
+            {
+              "id": 2,
+              "text": "Al-Khatib al-Baghdadi, *Tarikh Baghdad*, jld. 9, hlm. 236.   ---"
+            }
+          ]
+        },
+        {
+          "id": "c2_s2",
+          "title": "Ketenangan Jiwa dan Daya Lajakan Asal",
+          "paragraphs": [
             "Saya amat tertarik dengan bait-bait nukilan seorang penyair Tunisia, Ahmad al-Mukhtar al-Wazir yang menggambarkan perihal jiwa yang suci murni. Beliau menggunakan simbolik rama-rama; hampir-hampir sahaja beliau menyentuh hakikat kebenaran yang mutlak kerana didorong oleh fitrahnya yang murni, cuma beliau tidak sempat menggenggamnya sepenuhnya. Beliau terlepas peluang untuk menyifatkan jiwa yang beriman dengan gambaran yang jauh lebih fasih berbanding orang lain...",
             "Beliau terpesona melihat rama-rama itu:",
             "**سَاكِنَةٌ ، في صَمْتِهَا ، أَبْيَنُ مِمَّنْ يَنْطِقُ**  \n*Ia tenang, dalam diamnya ia lebih fasih berbicara daripada mereka yang berkata-kata.*",
             "Begitulah rupa paras keimanan: penuh kelembutan, tafakur, ketenangan, hening, sedikit berbicara, serta jauh daripada kesia-siaan kata; namun ia diliputi oleh kehebatan yang menggetarkan jiwa dan keindahan sastera yang amat mempesonakan.",
             "**وَإِنْ وَنَتْ وَقْفَتُهَا : أَعْجَلَهَا المُنْطَلَقُ**  \n*Jika ia terlambat kerana terhenti seketika, lajakan asalnya segera menyegerakannya kembali.*",
             "Berhenti seketika merupakan satu kelaziman hidup dan ketentuan yang ditakdirkan ke atas manusia. Namun bagi orang yang beriman, fasa terhenti itu tidak sekali-kali menjadi kelalaian, kealpaan, atau kelesuan yang berpanjangan. Sebaliknya, ia hanyalah sekadar jeda seketika, yang kemudiannya segera dihapuskan oleh ransangan-ransangan terpendam; sama ada daripada bekalan peribadi yang tersimpan rapi atau warisan hikmah yang terpasak kukuh.",
-            "Akan tetapi syaitan sentiasa menghalang dan cuba membantutkan pecutan lajakan ini. Syaitan memperdaya orang yang beriman dan meletakkan halangan-halangan berat bertopengkan perhiasan yang sarat dengan kilauan palsu, kelipan indah, dan sinar memukau yang mampu mengaburi jiwa yang melayang-layang. Namun jiwa yang diberikan ilham—yang diilhamkan keimanan kepadanya—mampu menembusi di sebalik kepalsuan itu untuk melihat hakikat sebenar. Ia menelanjangi kesombongan yang diada-adakan, hasad dengki yang dibisikkan, perebutan jawatan yang terlewat, atau ketamakan mengejar harta dunia yang fana.",
+            "Akan tetapi syaitan sentiasa menghalang dan cuba membantutkan pecutan lajakan ini. Syaitan memperdaya orang yang beriman dan meletakkan halangan-halangan berat bertopengkan perhiasan yang sarat dengan kilauan palsu, kelipan indah, dan sinar memukau yang mampu mengaburi jiwa yang melayang-layang. Namun jiwa yang diberikan ilham—yang diilhamkan keimanan kepadanya—mampu menembusi di sebalik kepalsuan itu untuk melihat hakikat sebenar. Ia menelanjangi kesombongan yang diada-adakan, hasad dengki yang dibisikkan, perebutan jawatan yang terlewat, atau ketamakan mengejar harta dunia yang fana."
+          ],
+          "footnotes": []
+        },
+        {
+          "id": "c2_s3",
+          "title": "Kilauan Bayang di Permukaan Tasik",
+          "paragraphs": [
             "Begitulah ibarat rama-rama yang berlegar-legar di sekitar kilauan bayangnya di permukaan tasik...",
             "Atau begitulah gambaran pengalaman jiwa yang beriman:",
             "**لَكَمْ رَأَتْ خَيَالَهَا ، مَاجَ بِهِ المُنْبَثَقُ**  \n*Betapa kerap ia melihat bayangannya, berombak ditiup pancutan air.*",
             "**كَأَنَّهُ النَّجْمُ يَرِفُّ ، وَالمِيَاهُ الأُفُقُ**  \n*Seolah-olah ia bintang yang berkelipan, sedang permukaan air laksana kaki langit.*",
             "**فَحَوَّمَتْ ، تَرْنُو ، تَوَدُّ لَوْ بِهِ تَعْتَلِقُ**  \n*Maka ia melayang merenung, berhasrat andai dapat berpaut padanya.*",
             "**وَأَوْشَكَتْ ، لَوْ لَمْ تُفِقْ ، يَقْضِي عَلَيْهَا الغَرَقُ**  \n*Dan hampir-hampir sahaja, andai ia tidak segera sedar, ia binasa lemas.*",
-            "**لَكِنَّهَا مُؤْمِنَةٌ ، هَيْهَاتَ ، لاَ تَسْتَحْمِقُ**  \n*Namun ia beriman, sama sekali tidak, ia tidak bertindak dungu.*",
+            "**لَكِنَّهَا مُؤْمِنَةٌ ، هَيْهَاتَ ، لاَ تَسْتَحْمِقُ**  \n*Namun ia beriman, sama sekali tidak, ia tidak bertindak dungu.*"
+          ],
+          "footnotes": []
+        },
+        {
+          "id": "c2_s4",
+          "title": "Simpang Petunjuk dan Keperluan Amaran Pelembut Hati",
+          "paragraphs": [
             "**بَيْنَ الضَّلاَلِ وَالهُدَى : يَبْدُو لَهَا المُفْتَرَقُ**  \n*Antara kesesatan dan petunjuk: jelas terbentang simpang perbezaannya.*",
             "Benar, begitulah hakikatnya: simpang perbezaan itu amat nyata. Kedudukan yang semakin hampir akan mendedahkan rupa sebenar, menambahkan kejelasan demi kejelasan, serta menzahirkan bahawa apa yang disangka oleh jiwa sebagai kilauan cahaya daripada kejauhan, tidak lain hanyalah getaran riak air semata-mata.",
             "Namun, mengapakah perlu diselamatkan ketika mendekati gelombang tinggi yang datang menerpa secara tiba-tiba, yang meninggalkan kebasahan yang memberatkan andai kata tidak membawa kepada kelemasan yang membinasakan?",
             "Dari sinilah wajibnya peringatan dan perlu adanya amaran, melalui ungkapan persis dengan *ar-Raqā'iq* ini. Tujuannya adalah supaya jiwa yang beriman tidak jatuh tersungkur—tatkala ia beriman—hanya kerana tempias daripada tindakan mendekatinya. Bahkan kelangsungan hidup jiwa ini terletak pada ketinggiannya, dan keselamatannya bergantung pada keluhurannya.",
             "Ia merupakan cebisan sastera yang amat bernilai yang dinukilkan oleh penyair dan dihadiahkan kepada para belia, tetapi ia sebenarnya mengandungi hikmah bagi orang yang telah matang.",
-            "Hal sedemikian tidaklah pelik mengikut timbangan hikmah Islam. Sesungguhnya hikmah Islam itu mengandungi kebenaran yang abadi; ia tidak melalui fasa evolusi yang muncul selepas zaman kejahilan dan keterbelakangan. Sebaliknya, sebagaimana ia relevan pada fasa penamat, ia juga relevan pada fasa pertengahan, bahkan telah terbukti relevan sejak permulaan kehidupan manusia lagi. Buktinya, tauhid telah diwahyukan kepada Nabi Adam AS pada awal penciptaan dan Baginda merupakan seorang nabi; manakala ketakwaan pula diilhamkan kepada Habil, lalu beliau menahan tangannya daripada membalas kejahatan.",
+            "Hal sedemikian tidaklah pelik mengikut timbangan hikmah Islam. Sesungguhnya hikmah Islam itu mengandungi kebenaran yang abadi; ia tidak melalui fasa evolusi yang muncul selepas zaman kejahilan dan keterbelakangan. Sebaliknya, sebagaimana ia relevan pada fasa penamat, ia juga relevan pada fasa pertengahan, bahkan telah terbukti relevan sejak permulaan kehidupan manusia lagi. Buktinya, tauhid telah diwahyukan kepada Nabi Adam AS pada awal penciptaan dan Baginda merupakan seorang nabi; manakala ketakwaan pula diilhamkan kepada Habil, lalu beliau menahan tangannya daripada membalas kejahatan."
+          ],
+          "footnotes": []
+        },
+        {
+          "id": "c2_s5",
+          "title": "Ketinggian Iman Mendepani Falsafah Bahimiyyah",
+          "paragraphs": [
             "Lihatlah kecerahan hati dan kehalusan perasaan dalam simbolik ini yang menyingkap tabiat jiwa yang suci murni. Sebaliknya, perhatikan pula betapa tebalnya tabir yang menyelubungi hati seorang penyair ateis yang menyeru kepada kehidupan kehaiwanan:",
             "**إِنَّمَا العَيْشُ فِي بَهِيمِيَّةِ اللَّذَّةِ لاَ مَا يَقُولُهُ الفَلْسَفِي**  \n*Sesungguhnya nikmat hidup itu hanyalah melampiaskan kelazatan syahwat haiwani, bukan apa yang dikatakan oleh ahli falsafah.*",
             "**حُكْمُ كَأْسِ المَنُونِ أَنْ يَتَسَاوَى فِي حَسَاهَا الغَبِيُّ وَالأَلْمَعِي**  \n*Ketentuan cawan maut itu menyamakan hirupannya antara orang yang dungu dengan orang yang genius.*",
@@ -123,12 +156,7 @@
             "Melalui dua contoh bait puisi ini berserta ulasannya, terserlah sebahagian daripada kancah pertembungan yang berterusan antara keimanan dengan pelbagai rupa kesesatan.",
             "Di dalam kitab seperti inilah terkandung nasihat-nasihat pelembut hati, ketundukan jiwa, dan penambahan keyakinan...."
           ],
-          "footnotes": [
-            {
-              "id": 2,
-              "text": "Al-Khatib al-Baghdadi, *Tarikh Baghdad*, jld. 9, hlm. 236.   ---"
-            }
-          ]
+          "footnotes": []
         }
       ],
       "footnotes": [
@@ -141,7 +169,7 @@
           "text": "Al-Khatib al-Baghdadi, *Tarikh Baghdad*, jld. 9, hlm. 236.   ---"
         }
       ],
-      "summary": "MUKADIMAH: JIWA YANG BERIMAN\n### *(Al-Nafs al-Mu’minah - النَّفْسُ المُؤْمِنَةُ)*\n\n* **Ringkasan Am Mukadimah:**\n  Gerakan dakwah Islam berdiri di atas dua rukun utama: memilih pemuda yang berani dan cerdas, serta mentarbiah mereka dengan tarbiah yang mendalam, syumul dan kental. Syeikh al-Rasyid menegaskan bahawa bahaya terbesar sesebuah harakah adalah \"kebankrapan kader\" apabila tokoh-tokohnya lenyap seorang demi seorang tanpa pengganti yang setaraf. Jiwa yang beriman adalah benteng pertahanan terakhir; tanpa penyucian jiwa dan pelembut hati (*al-raqā'iq*), gerakan akan menjadi jasad kaku yang kehilangan roh perjuangan.\n\n* **Intisari Subtajuk:**\n  * **• Gerakan Islam Wajib Memiliki Firasat Meneliti Dirinya Sendiri:**\n    * **Firasat Dalaman Mendahului Firasat Luaran:** Menuruti mutiara kata Samnun al-Muhibb, sesiapa yang celik meneliti aib dan kelemahan dirinya, firasatnya terhadap orang lain dan musuh akan menjadi tajam dan tepat.\n    * **Keutamaan Amal (*Al-Mufadhalah*):** Mengelakkan tarbiah semberono; harakah mesti mendahulukan perkara yang paling mendesak mengikut tuntutan fasa perjuangan.\n    * **Sepuluh Disiplin Asas Kader Rabbani:** \n      1. Menjaga solat dan memperkukuh akidah.\n      2. Beriltizam dengan adab persaudaraan (*ukhuwwah*).\n      3. Bergembira dengan keletihan dan pengorbanan harian.\n      4. Rindu kepada jihad dan syahid tanpa terburu-buru.\n      5. Berdisiplin dengan ketaatan jemaah.\n      6. Memadai dengan dunia yang sedikit dan mencari keringanan beban di akhirat.\n      7. Mengintai kedatangan maut dan mematikan angan-angan palsu.\n      8. Mencintai Allah SWT yang dikawal oleh rasa takut (*khawf*).\n      9. Bersikap tegas memisahkan diri (*al-mufāṣalah*) daripada kekufuran dan nifak.\n      10. Bersabar menempuh mehnah dan ujian.\n\n---"
+      "summary": "MUKADIMAH: JIWA YANG BERIMAN\n### *(Al-Nafs al-Mu’minah - النَّفْسُ المُؤْمِنَةُ)*\n\n* **Ringkasan Am Mukadimah:**\n  Gerakan dakwah Islam berdiri di atas dua rukun utama: memilih pemuda yang berani dan cerdas, serta mentarbiah mereka dengan tarbiah yang mendalam, syumul dan kental. Syeikh al-Rasyid menegaskan bahawa bahaya terbesar sesebuah harakah adalah \"kebankrapan kader\" apabila tokoh-tokohnya lenyap seorang demi seorang tanpa pengganti yang setaraf. Jiwa yang beriman adalah benteng pertahanan terakhir; tanpa penyucian jiwa dan pelembut hati (*al-raqā'iq*), gerakan akan menjadi jasad kaku yang kehilangan roh perjuangan.\n\n* **Intisari Subtajuk:**\n  * **• Pengenalan: Jiwa Yang Beriman:**\n    * Kewajipan melahirkan tokoh pemikul dakwah yang mengemudi bahtera perjuangan bagi mengelakkan bahaya kebankrapan kader (pesanan Syeikh Abu al-Hasan al-Nadwi).\n  * **• Firasat Meneliti Diri dan Neraca Tarbiah Harakiyyah:**\n    * **Firasat Dalaman Mendahului Firasat Luaran:** Menuruti mutiara kata Samnun al-Muhibb, sesiapa yang celik meneliti aib dan kelemahan dirinya, firasatnya terhadap orang lain dan musuh akan menjadi tajam dan tepat.\n    * **Keutamaan Amal (*Al-Mufadhalah*):** Mengelakkan tarbiah semberono; harakah mesti mendahulukan perkara yang paling mendesak mengikut tuntutan fasa perjuangan.\n    * **Sepuluh Disiplin Asas Kader Rabbani:** \n      1. Menjaga solat dan memperkukuh akidah.\n      2. Beriltizam dengan adab persaudaraan (*ukhuwwah*).\n      3. Bergembira dengan keletihan dan pengorbanan harian.\n      4. Rindu kepada jihad dan syahid tanpa terburu-buru.\n      5. Berdisiplin dengan ketaatan jemaah.\n      6. Memadai dengan dunia yang sedikit dan mencari keringanan beban di akhirat.\n      7. Mengintai kedatangan maut dan mematikan angan-angan palsu.\n      8. Mencintai Allah SWT yang dikawal oleh rasa takut (*khawf*).\n      9. Bersikap tegas memisahkan diri (*al-mufāṣalah*) daripada kekufuran dan nifak.\n      10. Bersabar menempuh mehnah dan ujian.\n  * **• Ketenangan Jiwa dan Daya Lajakan Asal:**\n    * Menghuraikan bait Ahmad al-Mukhtar al-Wazir tentang keindahan sifat jiwa beriman: *Sākinatun fī samtihā* (tenang dalam diam, lebih fasih berbicara daripada mereka yang berkata-kata) dan *Al-Munṭalaq* (daya lajakan asal yang segera menyegerakan kembali jika terhenti seketika). Jeda rehat bukanlah kelesuan, dan godaan syaitan tidak mampu memperdaya bashirah mukmin.\n  * **• Kilauan Bayang di Permukaan Tasik:**\n    * Drama alegori rama-rama yang berlegar di sekitar bayangannya di permukaan air: terpesona melihat kilauan bintang di kaki langit air, melayang merenung hingga hampir binasa lemas, namun diselamatkan oleh benteng keimanan (*Lākinna-hā mu'minatun, la tastahmiq*).\n  * **• Simpang Petunjuk dan Keperluan Amaran Pelembut Hati:**\n    * Membezakan antara hakikat kebenaran dengan getaran fatamorgana riak air (*Baina adh-Dhalāl wa al-Hudā*). Kepentingan kitab *Al-Raqā'iq* sebagai loceng amaran sebelum jiwa tersungkur lemas ke lembah fitnah.\n  * **• Ketinggian Iman Mendepani Falsafah Bahimiyyah:**\n    * Menelanjangi kesesatan penyair ateis yang menyeru kepada kelazatan syahwat haiwani (*bahimiyyah*) dan mendakwa tanah kubur menyamakan orang dungu dan orang genius.\n    * Hujah mantik Abu Sulaiman al-Sijistani (riwayat Abu Hayyan al-Tauhidi): bumi hanya membalut jasad dan bangkai kasar manusia, bukan membalut iman, tauhid, kezuhudan, ketaatan, dan makrifat mereka.\n\n---"
     },
     {
       "id": 3,
