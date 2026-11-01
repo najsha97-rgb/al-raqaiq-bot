@@ -198,7 +198,10 @@ def get_main_menu_keyboard():
                 {"text": "🔍 Carian Topik", "callback_data": "menu_search_info"}
             ],
             [
-                {"text": "💎 227 Mutiara Kata (Hadis Nabi SAW + Tokoh & Pejuang)", "callback_data": "hikmah_random"}
+                {"text": "🌱 Sekilas Tonggak Amalan Tarbiah", "callback_data": "ft_all"}
+            ],
+            [
+                {"text": "💎 Mutiara Kata Hikmah Dakwah", "callback_data": "hikmah_random"}
             ],
             [
                 {"text": "🔄 Pilihan Mod Bacaan", "callback_data": "menu_mode"}
@@ -465,6 +468,74 @@ def get_hikmah_keyboard(item):
 
 # ================= HANDLERS =================
 
+
+# ================= SEKILAS TONGGAK AMALAN TARBIAH =================
+
+def format_fakta_tarbiah(pillar="all"):
+    header = """🌱 ━━━━━━━━━━━━━━━━━━━ ✨
+🌿 <b>SEKILAS TONGGAK AMALAN TARBIAH</b> 🌿
+<i>Tiga Disiplin Ruhiyyah Asas Da'i Salafussoleh</i>
+🌱 ━━━━━━━━━━━━━━━━━━━ ✨
+
+<blockquote><i>"Kelembutan hati (al-raqā'iq) bukanlah sentimen kosong, tetapi berpaut teguh di atas tiga disiplin fizikal-spiritual salafussoleh."</i></blockquote>
+
+"""
+    p1 = """📖 <b>TONGGAK 1: TILAWAH & BERTAHAJUD DENGAN AL-QURAN</b>
+<i>(Madrasah Malam & Pengukuhan Hati)</i>
+• <b>Kalam Malik bin Dinar (Bab 5):</b>
+  <blockquote><i>"Tidak berbaki lagi kelazatan dunia melainkan tiga: bertemu saudara seakidah, <b>bertahajud dengan al-Quran</b>, dan beriktikaf di rumah sunyi mengingati Allah."</i></blockquote>
+• <b>Bait Madrasah Malam (Bab 2):</b>
+  <i>«Wahai malam, qiammu adalah madrasah; di dalamnya al-Quran mengajarku.»</i>
+• <b>Amalan Praktikal:</b> Wirid tilawah minima 1 juzuk sehari & tadabbur ayat pelembut jiwa dalam tahajud.
+
+"""
+    p2 = """🌙 <b>TONGGAK 2: PUASA SUNAT & MENUNDUKKAN SYAHWAT</b>
+<i>(Disiplin Rohani & Kekuatan Siang Hari)</i>
+• <b>Wasiat Abu Bakar al-Siddiq RA (Bab 12):</b>
+  <blockquote><i>"Ketahuilah! Allah mempunyai hak pada waktu siang yang tidak diterima-Nya pada waktu malam, dan hak malam yang tidak diterima pada waktu siang."</i></blockquote>
+• <b>Neraca Salaf (Bab 2 & 10):</b>
+  Siang salaf sarat dengan puasa dan kesungguhan jihad tatkala manusia lain leka melayan nafsu perut dan kerehatan.
+• <b>Amalan Praktikal:</b> Melazimi puasa sunat Isnin & Khamis serta Hari-Hari Putih (13-15 hijrah) demi memecahkan belenggu kerehatan.
+
+"""
+    p3 = """💰 <b>TONGGAK 3: SEDEKAH, INFAQ & MENGUTAMAKAN SAUDARA (AL-I'TSAR)</b>
+<i>(Penaklukan Harta & Pembersihan Jiwa)</i>
+• <b>Kalam Hasan al-Basri (Bab 2):</b>
+  <blockquote><i>"Kami tidak mengetahui suatu amal yang lebih sukar melainkan mujahadah qiamullail dan <b>menafkahkan harta ini</b>."</i></blockquote>
+• <b>Ciri Da'i Rabbani (Bab 12):</b>
+  <i>«Hartanya dijadikan khadam kepada perjuangannya, bukan dirinya menjadi hamba kepada hartanya.»</i>
+• <b>Amalan Praktikal:</b> Memperuntukkan infaq tetap bulanan dakwah & mengamalkan sifat itsar mendahulukan keperluan saudara mukmin.
+
+"""
+    footer = "<i>Kitab Al-Raqā'iq — Syeikh Muhammad Ahmad al-Rasyid</i>"
+
+    if pillar == "1":
+        return header + p1 + footer
+    elif pillar == "2":
+        return header + p2 + footer
+    elif pillar == "3":
+        return header + p3 + footer
+    else:
+        return header + p1 + p2 + p3 + footer
+
+def get_fakta_tarbiah_keyboard(current="all"):
+    return {
+        "inline_keyboard": [
+            [
+                {"text": ("✅ " if current == "1" else "") + "📖 1. Al-Quran", "callback_data": "ft_1"},
+                {"text": ("✅ " if current == "2" else "") + "🌙 2. Puasa", "callback_data": "ft_2"},
+                {"text": ("✅ " if current == "3" else "") + "💰 3. Infaq", "callback_data": "ft_3"},
+            ],
+            [
+                {"text": ("✅ " if current == "all" else "") + "🌱 Papar Semua 3 Tonggak", "callback_data": "ft_all"}
+            ],
+            [
+                {"text": "🏠 Menu Utama", "callback_data": "menu_main"}
+            ]
+        ]
+    }
+
+
 def handle_message(msg):
     chat_id = msg["chat"]["id"]
     text = msg.get("text", "").strip()
@@ -494,6 +565,10 @@ def handle_message(msg):
             send_message(chat_id, "ℹ️ Sila taip kata kunci carian selepas arahan.\nContoh: <code>/cari syaitan</code> atau <code>/cari tanzim</code>")
             return
         handle_search(chat_id, query)
+        return
+
+    if text.startswith("/fakta_tarbiah") or text.startswith("/amalan"):
+        send_message(chat_id, format_fakta_tarbiah("all"), get_fakta_tarbiah_keyboard("all"))
         return
 
     if text.startswith("/hikmah"):
@@ -578,6 +653,11 @@ def handle_callback(cb):
             handle_search(chat_id, search_q)
         else:
             send_message(chat_id, "Sila buat carian baru dengan /cari [kata kunci].")
+        return
+
+    if data.startswith("ft_"):
+        mode = data.replace("ft_", "")
+        edit_message(chat_id, msg_id, format_fakta_tarbiah(mode), get_fakta_tarbiah_keyboard(mode))
         return
 
     if data == "menu_main":
