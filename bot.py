@@ -133,6 +133,20 @@ def escape_html_entities(text):
     # Gantikan sebarang & yang bukan sebahagian daripada entiti sah
     return re.sub(r"&(?!(?:amp|lt|gt|quot|apos);)", "&amp;", text)
 
+def send_document(chat_id, file_path, caption="", reply_markup=None):
+    url = f"{API_BASE}/sendDocument"
+    try:
+        with open(file_path, "rb") as f:
+            files = {"document": f}
+            data = {"chat_id": chat_id, "caption": caption, "parse_mode": "HTML"}
+            if reply_markup:
+                data["reply_markup"] = json.dumps(reply_markup)
+            res = session.post(url, data=data, files=files, timeout=60)
+            return res.json()
+    except Exception as e:
+        print(f"Ralat sendDocument: {e}")
+        return None
+
 def send_message(chat_id, text, reply_markup=None, parse_mode="HTML"):
     if parse_mode == "HTML":
         text = escape_html_entities(text)
@@ -187,6 +201,41 @@ def answer_callback_query(callback_query_id, text=""):
 
 # ================= MENU GENERATORS =================
 
+def get_pbi_main_keyboard():
+    return {
+        "inline_keyboard": [
+            [
+                {"text": "👑 1. Tasbih Mengukuhkan Kerajaan (Bab 1)", "callback_data": "pbi_sub_1"}
+            ],
+            [
+                {"text": "🌙 2. Madrasah Malam & Minit Berharga (Bab 2)", "callback_data": "pbi_sub_2"}
+            ],
+            [
+                {"text": "🤝 3. Komuniti Akar Umbi & Fiqh Itsar (Bab 5)", "callback_data": "pbi_sub_3"}
+            ],
+            [
+                {"text": "⛓️ 4. Memecahkan Belenggu Bumi (Bab 10)", "callback_data": "pbi_sub_4"}
+            ],
+            [
+                {"text": "🕊️ 5. Hamba yang Merdeka & Izzah (Bab 11)", "callback_data": "pbi_sub_5"}
+            ],
+            [
+                {"text": "⏳ 6. Etos Kerja: 'Lenyap Masa Terluang' (Bab 12)", "callback_data": "pbi_sub_6"}
+            ],
+            [
+                {"text": "🏛️ Pemetaan 8 Tonggak Kuasa", "callback_data": "pbi_sub_tonggak"},
+                {"text": "📚 Harmonisasi 4 Tetralogi", "callback_data": "pbi_sub_tetralogi"}
+            ],
+            [
+                {"text": "📕 Dokumen Am PDF (886 KB)", "callback_data": "pbi_doc_pdf"},
+                {"text": "📕 Dokumen Khas PDF (4.3 MB)", "callback_data": "pbi_khas_pdf"}
+            ],
+            [
+                {"text": "⬅️ Kembali ke Menu Utama", "callback_data": "menu_main"}
+            ]
+        ]
+    }
+
 def get_main_menu_keyboard():
     return {
         "inline_keyboard": [
@@ -198,16 +247,16 @@ def get_main_menu_keyboard():
                 {"text": "🔍 Carian Topik", "callback_data": "menu_search_info"}
             ],
             [
-                {"text": "🌱 Sekilas Tonggak Amalan Tarbiah", "callback_data": "ft_all"}
+                {"text": "💎 227 Mutiara Kata (Hadis Nabi SAW + Tokoh & Pejuang)", "callback_data": "hikmah_random"}
             ],
             [
-                {"text": "💎 Mutiara Kata Hikmah Dakwah", "callback_data": "hikmah_random"}
+                {"text": "🌍 Ummah Fadhilah & PBI (Sumbangan al-Raqā\'iq)", "callback_data": "menu_pbi_raqaiq"}
             ],
             [
                 {"text": "🔄 Pilihan Mod Bacaan", "callback_data": "menu_mode"}
             ],
             [
-                {"text": "🧭 Buka Web PWA Al-Raqaiq 🌐", "url": "https://najsha97-rgb.github.io/al-awaiq-pwa/"}
+                {"text": "🧭 Buka Web PWA Al-Raqaiq 🌐", "url": "https://najsha97-rgb.github.io/al-raqaiq-pwa/"}
             ],
             [
                 {"text": "ℹ️ Info Kitab & Syeikh", "callback_data": "menu_about"}
@@ -327,7 +376,7 @@ def format_subtopic_text(ch_idx, s_idx, layer, page=0, search_q=None):
     
     header = (
         f"🔵 ━━━━━━━━━━━━━━━━━━━ ⚡\n"
-        f"🧭 <b>AL-AWAIQ (المَسَار)</b>\n"
+        f"🧭 <b>AL-RAQĀ'IQ (الرَّقَـائِق)</b>\n"
         f"📚 <b>{ch['number']}: {ch['title']}</b>\n"
         f"📑 <b>Tajuk: {sub['title']}</b>\n"
         f"🏷 {mode_label}\n"
@@ -441,7 +490,7 @@ def format_hikmah_message(item):
         f"📚 <b>Sumber:</b> {item.get('chapterNumber', '')} - {item.get('chapterTitle', '')}\n"
         f"📑 <b>Topik:</b> {item.get('subtopicTitle', '')}\n"
         f"🧭 <i>Kitab Al-Raqaiq — Syeikh Muhammad Ahmad Ar-Rasyid</i>\n"
-        f"🌐 https://najsha97-rgb.github.io/al-awaiq-pwa/"
+        f"🌐 https://najsha97-rgb.github.io/al-raqaiq-pwa/"
     )
 
 def get_hikmah_keyboard(item):
@@ -468,74 +517,6 @@ def get_hikmah_keyboard(item):
 
 # ================= HANDLERS =================
 
-
-# ================= SEKILAS TONGGAK AMALAN TARBIAH =================
-
-def format_fakta_tarbiah(pillar="all"):
-    header = """🌱 ━━━━━━━━━━━━━━━━━━━ ✨
-🌿 <b>SEKILAS TONGGAK AMALAN TARBIAH</b> 🌿
-<i>Tiga Disiplin Ruhiyyah Asas Da'i Salafussoleh</i>
-🌱 ━━━━━━━━━━━━━━━━━━━ ✨
-
-<blockquote><i>"Kelembutan hati (al-raqā'iq) bukanlah sentimen kosong, tetapi berpaut teguh di atas tiga disiplin fizikal-spiritual salafussoleh."</i></blockquote>
-
-"""
-    p1 = """📖 <b>TONGGAK 1: TILAWAH & BERTAHAJUD DENGAN AL-QURAN</b>
-<i>(Madrasah Malam & Pengukuhan Hati)</i>
-• <b>Kalam Malik bin Dinar (Bab 5):</b>
-  <blockquote><i>"Tidak berbaki lagi kelazatan dunia melainkan tiga: bertemu saudara seakidah, <b>bertahajud dengan al-Quran</b>, dan beriktikaf di rumah sunyi mengingati Allah."</i></blockquote>
-• <b>Bait Madrasah Malam (Bab 2):</b>
-  <i>«Wahai malam, qiammu adalah madrasah; di dalamnya al-Quran mengajarku.»</i>
-• <b>Amalan Praktikal:</b> Wirid tilawah minima 1 juzuk sehari & tadabbur ayat pelembut jiwa dalam tahajud.
-
-"""
-    p2 = """🌙 <b>TONGGAK 2: PUASA SUNAT & MENUNDUKKAN SYAHWAT</b>
-<i>(Disiplin Rohani & Kekuatan Siang Hari)</i>
-• <b>Wasiat Abu Bakar al-Siddiq RA (Bab 12):</b>
-  <blockquote><i>"Ketahuilah! Allah mempunyai hak pada waktu siang yang tidak diterima-Nya pada waktu malam, dan hak malam yang tidak diterima pada waktu siang."</i></blockquote>
-• <b>Neraca Salaf (Bab 2 & 10):</b>
-  Siang salaf sarat dengan puasa dan kesungguhan jihad tatkala manusia lain leka melayan nafsu perut dan kerehatan.
-• <b>Amalan Praktikal:</b> Melazimi puasa sunat Isnin & Khamis serta Hari-Hari Putih (13-15 hijrah) demi memecahkan belenggu kerehatan.
-
-"""
-    p3 = """💰 <b>TONGGAK 3: SEDEKAH, INFAQ & MENGUTAMAKAN SAUDARA (AL-I'TSAR)</b>
-<i>(Penaklukan Harta & Pembersihan Jiwa)</i>
-• <b>Kalam Hasan al-Basri (Bab 2):</b>
-  <blockquote><i>"Kami tidak mengetahui suatu amal yang lebih sukar melainkan mujahadah qiamullail dan <b>menafkahkan harta ini</b>."</i></blockquote>
-• <b>Ciri Da'i Rabbani (Bab 12):</b>
-  <i>«Hartanya dijadikan khadam kepada perjuangannya, bukan dirinya menjadi hamba kepada hartanya.»</i>
-• <b>Amalan Praktikal:</b> Memperuntukkan infaq tetap bulanan dakwah & mengamalkan sifat itsar mendahulukan keperluan saudara mukmin.
-
-"""
-    footer = "<i>Kitab Al-Raqā'iq — Syeikh Muhammad Ahmad al-Rasyid</i>"
-
-    if pillar == "1":
-        return header + p1 + footer
-    elif pillar == "2":
-        return header + p2 + footer
-    elif pillar == "3":
-        return header + p3 + footer
-    else:
-        return header + p1 + p2 + p3 + footer
-
-def get_fakta_tarbiah_keyboard(current="all"):
-    return {
-        "inline_keyboard": [
-            [
-                {"text": ("✅ " if current == "1" else "") + "📖 1. Al-Quran", "callback_data": "ft_1"},
-                {"text": ("✅ " if current == "2" else "") + "🌙 2. Puasa", "callback_data": "ft_2"},
-                {"text": ("✅ " if current == "3" else "") + "💰 3. Infaq", "callback_data": "ft_3"},
-            ],
-            [
-                {"text": ("✅ " if current == "all" else "") + "🌱 Papar Semua 3 Tonggak", "callback_data": "ft_all"}
-            ],
-            [
-                {"text": "🏠 Menu Utama", "callback_data": "menu_main"}
-            ]
-        ]
-    }
-
-
 def handle_message(msg):
     chat_id = msg["chat"]["id"]
     text = msg.get("text", "").strip()
@@ -543,7 +524,7 @@ def handle_message(msg):
     if text.startswith("/start") or text.startswith("/menu"):
         welcome_txt = (
             "🔵 ━━━━━━━━━━━━━━━━━━━ ⚡\n"
-            "🧭 <b>AL-AWAIQ (المَسَار)</b> 🧭\n"
+            "🧭 <b>AL-RAQĀ'IQ (الرَّقَـائِق)</b> 🧭\n"
             "<i>Pelembut-pelembut Hati Harakah Islamiyah</i>\n"
             "🔵 ━━━━━━━━━━━━━━━━━━━ ⚡\n\n"
             "<blockquote>📖 <b>Pengarang:</b> As-Syeikh Muhammad Ahmad Ar-Rasyid (رحمه الله)\n"
@@ -553,7 +534,7 @@ def handle_message(msg):
             "• ⚡ <code>Layer 2</code>: Ringkasan Eksklusif Berstruktur & Analisis Haraki\n"
             "• 💎 <code>Mutiara Hikmah</code>: Himpunan 227 Nukilan Emas Tokoh & Pemimpin Dakwah\n\n"
             "🌐 <b>Web PWA (Tema Nilam & Amber):</b>\n"
-            "https://najsha97-rgb.github.io/al-awaiq-pwa/\n\n"
+            "https://najsha97-rgb.github.io/al-raqaiq-pwa/\n\n"
             "<i>Sila pilih menu di bawah untuk memulakan bacaan:</i>"
         )
         send_message(chat_id, welcome_txt, get_main_menu_keyboard())
@@ -565,10 +546,6 @@ def handle_message(msg):
             send_message(chat_id, "ℹ️ Sila taip kata kunci carian selepas arahan.\nContoh: <code>/cari syaitan</code> atau <code>/cari tanzim</code>")
             return
         handle_search(chat_id, query)
-        return
-
-    if text.startswith("/fakta_tarbiah") or text.startswith("/amalan"):
-        send_message(chat_id, format_fakta_tarbiah("all"), get_fakta_tarbiah_keyboard("all"))
         return
 
     if text.startswith("/hikmah"):
@@ -655,15 +632,10 @@ def handle_callback(cb):
             send_message(chat_id, "Sila buat carian baru dengan /cari [kata kunci].")
         return
 
-    if data.startswith("ft_"):
-        mode = data.replace("ft_", "")
-        edit_message(chat_id, msg_id, format_fakta_tarbiah(mode), get_fakta_tarbiah_keyboard(mode))
-        return
-
     if data == "menu_main":
         welcome_txt = (
             "🔵 ━━━━━━━━━━━━━━━━━━━ ⚡\n"
-            "🧭 <b>AL-AWAIQ (المَسَار)</b> 🧭\n"
+            "🧭 <b>AL-RAQĀ'IQ (الرَّقَـائِق)</b> 🧭\n"
             "<i>Pelembut-pelembut Hati Harakah Islamiyah</i>\n"
             "🔵 ━━━━━━━━━━━━━━━━━━━ ⚡\n\n"
             "<blockquote>📖 <b>Pengarang:</b> As-Syeikh Muhammad Ahmad Ar-Rasyid (رحمه الله)\n"
@@ -673,7 +645,7 @@ def handle_callback(cb):
             "• ⚡ <code>Layer 2</code>: Ringkasan Eksklusif Berstruktur & Analisis Haraki\n"
             "• 💎 <code>Mutiara Hikmah</code>: Himpunan 227 Nukilan Emas Tokoh & Pemimpin Dakwah\n\n"
             "🌐 <b>Web PWA (Tema Nilam & Amber):</b>\n"
-            "https://najsha97-rgb.github.io/al-awaiq-pwa/\n\n"
+            "https://najsha97-rgb.github.io/al-raqaiq-pwa/\n\n"
             "<i>Sila pilih seksyen di bawah untuk memulakan bacaan:</i>"
         )
         edit_message(chat_id, msg_id, welcome_txt, get_main_menu_keyboard())
@@ -793,11 +765,198 @@ def handle_callback(cb):
             "• <code>/cari tanzim</code> (Fiqh organisasi & rahsia)\n"
             "• <code>/cari wanita</code> (Peranan dakwah muslimat)\n"
             "• <code>/cari banna</code> (Nukilan Imam Hasan al-Banna)\n"
-            "• <code>/cari qutb</code> (Kritikan Sayyid Qutb terhadap tanzim khas)\n"
+            "• <code>/cari qutb</code> (Kritikan Sayid Qutb terhadap tanzim khas)\n"
             "• <code>/cari tajmi'</code> (10 Seni pengumpulan mad'u)"
         )
         kb = {"inline_keyboard": [[{"text": "⬅️ Menu Utama", "callback_data": "menu_main"}]]}
         edit_message(chat_id, msg_id, txt, kb)
+        return
+
+    if data == "menu_pbi_raqaiq":
+        txt = (
+            "🌍 ━━━━━━━━━━━━━━━━━━━━━ ⚡\n"
+            "<b>UMMAH FADHILAH & PERADABAN BARU ISLAM (PBI)</b>\n"
+            "<i>Sumbangan Kitab Al-Raqā'iq dalam Membina Kuasa Nasional 100 Tahun Kedua</i>\n"
+            "🌍 ━━━━━━━━━━━━━━━━━━━━━ ⚡\n\n"
+            "<blockquote>🧭 <b>Peranan Strategik Kitab:</b>\n"
+            "Kitab <b>Al-Raqā'iq</b> adalah <b>jantung rohani dan benteng moral</b> kepada seluruh pembinaan Kuasa Nasional. "
+            "Ia merawat bahaya terbesar akhir 100 Tahun Pertama: <i>kekeringan batin dan mabuk kuasa (ghuluw siasah)</i>. "
+            "Al-Raqā'iq memastikan kedaulatan dibina di atas sujud dan ubudiah mutlak kepada Allah SWT.</blockquote>\n\n"
+            "📌 <b>Enam Teras Sumbangan Al-Raqā'iq:</b>\n"
+            "1. 👑 <b>Tasbih Kerajaan:</b> Model Nabi Daud AS (Bab 1)\n"
+            "2. 🌙 <b>Madrasah Malam:</b> Sepertiga malam terakhir (Bab 2)\n"
+            "3. 🤝 <b>Komuniti Akar Umbi:</b> Ukhuwah &amp; fiqh itsar (Bab 5)\n"
+            "4. ⛓️ <b>Pecah Belenggu Bumi:</b> Bebas ketakutan harta &amp; jawatan (Bab 10)\n"
+            "5. 🕊️ <b>Hamba Merdeka:</b> Izzah &amp; runtuhkan inferiority complex (Bab 11)\n"
+            "6. ⏳ <b>Etos Kerja Pejuang:</b> Lenyaplah waktu terluang! (Bab 12)\n\n"
+            "<i>Sila pilih butang di bawah untuk membaca huraian lanjut atau memuat turun dokumen:</i>"
+        )
+        edit_message(chat_id, msg_id, txt, get_pbi_main_keyboard())
+        return
+
+    if data == "pbi_sub_1":
+        txt = (
+            "👑 ━━━━━━━━━━━━━━━━━━━━━ ⚡\n"
+            "<b>1. TASBIH MENGUKUHKAN KERAJAAN (BAB 1)</b>\n"
+            "<i>Model Kepimpinan Kenabian: Nabi Daud 'Alaihissalam</i>\n"
+            "👑 ━━━━━━━━━━━━━━━━━━━━━ ⚡\n\n"
+            "• <b>Teladan Nabi Daud AS:</b> Baginda dianugerahkan kerajaan agung (<i>mulk</i>) dan kekuatan industri besi yang melentur bukan kerana tipu daya taktik, tetapi kerana baginda seorang hamba yang sentiasa merintih (<i>awwāb</i>), bertahajud, dan bertasbih di mihrab.\n\n"
+            "• <b>Prinsip Kuasa Nasional:</b> Kedaulatan watan Islam berpasak kukuh pada sujud, istighfar, dan zikir, bukan semata-mata kelicikan politik. Peradaban teguh apabila puncaknya tunduk kepada Pencipta."
+        )
+        kb = {"inline_keyboard": [[{"text": "⬅️ Kembali ke Menu PBI", "callback_data": "menu_pbi_raqaiq"}]]}
+        edit_message(chat_id, msg_id, txt, kb)
+        return
+
+    if data == "pbi_sub_2":
+        txt = (
+            "🌙 ━━━━━━━━━━━━━━━━━━━━━ ⚡\n"
+            "<b>2. MADRASAH MALAM &amp; MINIT BERHARGA (BAB 2)</b>\n"
+            "<i>Sepertiga Malam Terakhir: Medan Menakluk Tidur</i>\n"
+            "🌙 ━━━━━━━━━━━━━━━━━━━━━ ⚡\n\n"
+            "• <b>Minit-Minit Berharga:</b> Waktu sepertiga malam terakhir adalah penentu darjat dan keampunan di sisi Allah SWT.\n\n"
+            "• <b>Enjin Siang Bermula Malam:</b> Kemenangan dakwah di siang hari ditentukan oleh linangan air mata pejuang pada waktu malam. Pejuang yang gagal menakluk selimut tidurnya tidak akan mampu memimpin pembebasan dan membina peradaban baru."
+        )
+        kb = {"inline_keyboard": [[{"text": "⬅️ Kembali ke Menu PBI", "callback_data": "menu_pbi_raqaiq"}]]}
+        edit_message(chat_id, msg_id, txt, kb)
+        return
+
+    if data == "pbi_sub_3":
+        txt = (
+            "🤝 ━━━━━━━━━━━━━━━━━━━━━ ⚡\n"
+            "<b>3. KOMUNITI AKAR UMBI &amp; FIQH ITSAR (BAB 5)</b>\n"
+            "<i>Asas Masyarakat Harmoni Pembina Ummah Fadhilah</i>\n"
+            "🤝 ━━━━━━━━━━━━━━━━━━━━━ ⚡\n\n"
+            "• <b>Ukhuwah Takwa:</b> Ikatan persaudaraan sejati ditegakkan di atas ketakwaan, kebenaran dalam berkata-kata, dan menyingkirkan kepura-puraan (<i>takalluf</i>).\n\n"
+            "• <b>Fiqh Al-I'tsār:</b> Mengutamakan saudara seakidah melebihi diri sendiri. Inilah benteng sosial yang menewaskan fahaman kebendaan dan individualisme liberal Barat di peringkat komuniti watan."
+        )
+        kb = {"inline_keyboard": [[{"text": "⬅️ Kembali ke Menu PBI", "callback_data": "menu_pbi_raqaiq"}]]}
+        edit_message(chat_id, msg_id, txt, kb)
+        return
+
+    if data == "pbi_sub_4":
+        txt = (
+            "⛓️ ━━━━━━━━━━━━━━━━━━━━━ ⚡\n"
+            "<b>4. MEMECAHKAN BELENGGU BUMI (BAB 10)</b>\n"
+            "<i>Pembebasan daripada Keterikatan Harta &amp; Jawatan</i>\n"
+            "⛓️ ━━━━━━━━━━━━━━━━━━━━━ ⚡\n\n"
+            "• <b>Quyūd al-Arḍ (Belenggu Bumi):</b> Ketakutan kehilangan rezeki, cinta keterlaluan kepada rumah mewah, dan kemaruk jawatan melumpuhkan cita-cita peradaban.\n\n"
+            "• <b>Keberanian Mempertahankan Kedaulatan:</b> Pemimpin dan rakyat yang terbelenggu dengan kemewahan tidak akan sanggup berkorban mempertahankan kedaulatan watan daripada tekanan hegemoni luar."
+        )
+        kb = {"inline_keyboard": [[{"text": "⬅️ Kembali ke Menu PBI", "callback_data": "menu_pbi_raqaiq"}]]}
+        edit_message(chat_id, msg_id, txt, kb)
+        return
+
+    if data == "pbi_sub_5":
+        txt = (
+            "🕊️ ━━━━━━━━━━━━━━━━━━━━━ ⚡\n"
+            "<b>5. HAMBA YANG MERDEKA (BAB 11)</b>\n"
+            "<i>Izzah Islam &amp; Meruntuhkan Rasa Rendah Diri</i>\n"
+            "🕊️ ━━━━━━━━━━━━━━━━━━━━━ ⚡\n\n"
+            "• <b>Paradoks Kemerdekaan:</b> Kemerdekaan hakiki hanya lahir apabila seseorang menghambakan diri secara mutlak kepada Allah semata-mata.\n\n"
+            "• <b>Menghapuskan Inferiority Complex:</b> Melahirkan da'i dan warganegara yang bermaruah tinggi (<i>izzah</i>), meneladani ketegasan Saidina Rib'i bin 'Amir RA ketika berhadapan dengan keangkuhan maharaja Parsi."
+        )
+        kb = {"inline_keyboard": [[{"text": "⬅️ Kembali ke Menu PBI", "callback_data": "menu_pbi_raqaiq"}]]}
+        edit_message(chat_id, msg_id, txt, kb)
+        return
+
+    if data == "pbi_sub_6":
+        txt = (
+            "⏳ ━━━━━━━━━━━━━━━━━━━━━ ⚡\n"
+            "<b>6. ETOS KERJA: LENYAPLAH WAKTU TERLUANG! (BAB 12)</b>\n"
+            "<i>Wasiat Agung Khalifah Umar bin Abdul Aziz</i>\n"
+            "⏳ ━━━━━━━━━━━━━━━━━━━━━ ⚡\n\n"
+            "<blockquote><b>وَأَيْنَ الفَرَاغُ؟ ذَهَبَ الفَرَاغُ فَلَا فَرَاغَ إِلاَّ عِنْدَ اللهِ!</b>\n"
+            "<i>'Di manakah lagi adanya waktu terluang? Lenyaplah waktu terluang, maka tiada lagi kerehatan melainkan di sisi Allah!'</i></blockquote>\n\n"
+            "• <b>Umat Pencipta:</b> Menukar masyarakat daripada pengguna pasif kepada arkitek dan pencipta tamadun yang produktif, berdaya saing, dan menghargai setiap detik kehidupan."
+        )
+        kb = {"inline_keyboard": [[{"text": "⬅️ Kembali ke Menu PBI", "callback_data": "menu_pbi_raqaiq"}]]}
+        edit_message(chat_id, msg_id, txt, kb)
+        return
+
+    if data == "pbi_sub_tonggak":
+        txt = (
+            "🏛️ ━━━━━━━━━━━━━━━━━━━━━ ⚡\n"
+            "<b>PEMETAAN 8 TONGGAK KUASA NASIONAL</b>\n"
+            "<i>Sumbangan Kitab Al-Raqā'iq</i>\n"
+            "🏛️ ━━━━━━━━━━━━━━━━━━━━━ ⚡\n\n"
+            "• <b>Tonggak 1 (Tasawur &amp; Akidah):</b> Pemurnian tauhid &amp; ubudiah batin; menyandarkan keteguhan kuasa watan kepada tasbih dan sujud.\n"
+            "• <b>Tonggak 5 (Kesatuan Ummah):</b> Menghidupkan sifat <i>al-i'tsār</i> dan ukhuwah takwa di peringkat komuniti akar umbi.\n"
+            "• <b>Tonggak 6 (Pertahanan &amp; Keselamatan):</b> Membina daya tahan batiniah mencontohi kekuatan ketenteraan Nabi Daud AS.\n"
+            "• <b>Tonggak 8 (Integriti Sosial &amp; Akhlak):</b> Memerdekakan jiwa daripada belenggu kebendaan dan keselesaan duniawi."
+        )
+        kb = {"inline_keyboard": [[{"text": "⬅️ Kembali ke Menu PBI", "callback_data": "menu_pbi_raqaiq"}]]}
+        edit_message(chat_id, msg_id, txt, kb)
+        return
+
+    if data == "pbi_sub_tetralogi":
+        txt = (
+            "📚 ━━━━━━━━━━━━━━━━━━━━━ ⚡\n"
+            "<b>HARMONISASI 4 KARYA TETRALOGI AL-RASYID</b>\n"
+            "<i>Gagasan Menuju 100 Tahun Kedua</i>\n"
+            "📚 ━━━━━━━━━━━━━━━━━━━━━ ⚡\n\n"
+            "• <b>1. Al-Muntalaq:</b> Titik mula kesedaran, memurnikan tauhid, kefahaman komprehensif dakwah.\n"
+            "• <b>2. Al-‘Awā’iq:</b> Radar pengesan ranjau nafsu, kepentingan diri, dan fitnah perjalanan.\n"
+            "• <b>3. Al-Raqā'iq:</b> Enjin batin pejuang, pelembut hati, benteng pencegah <i>ghuluw siasah</i>.\n"
+            "• <b>4. Al-Masār:</b> Seni bina perancangan, polisi pentadbiran, dan strategi peradaban watan."
+        )
+        kb = {"inline_keyboard": [[{"text": "⬅️ Kembali ke Menu PBI", "callback_data": "menu_pbi_raqaiq"}]]}
+        edit_message(chat_id, msg_id, txt, kb)
+        return
+
+    if data == "pbi_doc_docx":
+        doc_path = os.path.join(os.path.dirname(__file__), "Gagasan_Ummah_Fadhilah_Kuasa_Nasional_dan_Tetralogi_Al-Rasyid.docx")
+        if os.path.exists(doc_path):
+            caption = (
+                "📄 <b>DOKUMEN PENUH (MICROSOFT WORD)</b>\n\n"
+                "<b>Tajuk:</b> Gagasan Ummah Fadhilah, Kuasa Nasional dan Sumbangan Tetralogi Al-Rasyid\n"
+                "<b>Format:</b> .docx (Boleh disunting &amp; dikaji bersama komuniti/usrah)\n\n"
+                "<i>Al-Raqā'iq: Pelembut Hati, Enjin Ruhiyah &amp; Pembinaan Komuniti Rabbani</i>"
+            )
+            send_document(chat_id, doc_path, caption)
+        else:
+            send_message(chat_id, "⚠️ Fail Word (.docx) tidak ditemui dalam direktori bot.")
+        return
+
+    if data == "pbi_doc_pdf":
+        pdf_path = os.path.join(os.path.dirname(__file__), "Gagasan_Ummah_Fadhilah_Kuasa_Nasional_dan_Tetralogi_Al-Rasyid.pdf")
+        if os.path.exists(pdf_path):
+            caption = (
+                "📕 <b>E-BUKU DOKUMEN PENGENALAN AM (PDF)</b>\n\n"
+                "<b>Tajuk:</b> Gagasan Ummah Fadhilah, Kuasa Nasional dan Sumbangan Tetralogi Al-Rasyid\n"
+                "<b>Format:</b> .pdf (Sedia dicetak &amp; dibaca di mana-mana peranti)\n\n"
+                "<i>Kerangka Pemikiran Menuju 100 Tahun Kedua Pasca-1924</i>"
+            )
+            send_document(chat_id, pdf_path, caption)
+        else:
+            send_message(chat_id, "⚠️ Fail PDF (.pdf) tidak ditemui dalam direktori bot.")
+        return
+
+    if data == "pbi_khas_docx":
+        doc_path = os.path.join(os.path.dirname(__file__), "Sumbangan_Al_Raqaiq_Dalam_Ummah_Fadhilah_Kuasa_Nasional_dan_PBI.docx")
+        if os.path.exists(doc_path):
+            caption = (
+                "📄 <b>DOKUMEN KHAS AL-RAQĀ'IQ (WORD)</b>\n\n"
+                "<b>Tajuk:</b> Sumbangan Kitab Al-Raqā'iq dalam Pembinaan Ummah Fadhilah, Kuasa Nasional &amp; PBI\n"
+                "<b>Format:</b> .docx (Pelembut Hati, Enjin Ruhiyah &amp; Pembinaan Komuniti Rabbani)\n\n"
+                "<i>Siri Ihya' Fiqh Ad-Da'wah • As-Syeikh Muhammad Ahmad al-Rasyid</i>"
+            )
+            send_document(chat_id, doc_path, caption)
+        else:
+            send_message(chat_id, "⚠️ Fail Word (.docx) Khas tidak ditemui dalam direktori bot.")
+        return
+
+    if data == "pbi_khas_pdf":
+        pdf_path = os.path.join(os.path.dirname(__file__), "Sumbangan_Al_Raqaiq_Dalam_Ummah_Fadhilah_Kuasa_Nasional_dan_PBI.pdf")
+        if os.path.exists(pdf_path):
+            caption = (
+                "📕 <b>DOKUMEN KHAS AL-RAQĀ'IQ (PDF)</b>\n\n"
+                "<b>Tajuk:</b> Sumbangan Kitab Al-Raqā'iq dalam Pembinaan Ummah Fadhilah, Kuasa Nasional &amp; PBI\n"
+                "<b>Format:</b> .pdf (E-Buku sedia cetak)\n\n"
+                "<i>Enjin Ruhiyah &amp; Benteng Pencegah Ghuluw Siasah</i>"
+            )
+            send_document(chat_id, pdf_path, caption)
+        else:
+            send_message(chat_id, "⚠️ Fail PDF (.pdf) Khas tidak ditemui dalam direktori bot.")
         return
 
     if data == "menu_about":
@@ -810,11 +969,11 @@ def handle_callback(cb):
             "<b>Cakupan:</b> Polisi Luaran, Polisi Dalaman & Polisi Tarbawi Harakah Islamiyah</blockquote>\n\n"
             "Al-Raqaiq adalah buku siri kelima daripada siri-siri fiqh dakwah dan harakah Islamiyah dimulai dengan <i>al-Muntalaq</i> (mengenali tabiatnya), <i>al-‘Awa’iq</i> (halangan dakwah), <i>al-Raqa’iq</i> (kelembutan jiwa), dan <i>al-Bawariq</i> (lintasan panduan).\n\n"
             "🌐 <b>Aplikasi Web PWA (Tema Nilam & Amber):</b>\n"
-            "https://najsha97-rgb.github.io/al-awaiq-pwa/"
+            "https://najsha97-rgb.github.io/al-raqaiq-pwa/"
         )
         kb = {
             "inline_keyboard": [
-                [{"text": "🔵 Layari Web PWA Al-Raqaiq 🌐", "url": "https://najsha97-rgb.github.io/al-awaiq-pwa/"}],
+                [{"text": "🔵 Layari Web PWA Al-Raqaiq 🌐", "url": "https://najsha97-rgb.github.io/al-raqaiq-pwa/"}],
                 [{"text": "⬅️ Menu Utama", "callback_data": "menu_main"}]
             ]
         }
